@@ -171,7 +171,6 @@ function useMethods() {
             if (layer.leafletObject) leafletObject.value!.removeLayer(layer.leafletObject)
             return
         }
-
         removeLayer(layer)
     }
 

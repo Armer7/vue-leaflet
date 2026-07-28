@@ -34,7 +34,7 @@ export const setupLayerGroup = <T extends LayerGroup = LayerGroup>(
             leafletRef.value?.addLayer(layer.leafletObject!)
         },
         hideLayer(layer: ILayerDefinition) {
-            leafletRef.value?.removeLayer(layer.leafletObject!)
+            methods.removeLayer(layer)
         },
         removeLayer(layer: ILayerDefinition) {
             leafletRef.value?.removeLayer(layer.leafletObject!)

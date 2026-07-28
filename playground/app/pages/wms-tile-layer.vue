@@ -6,9 +6,6 @@ const wmsVisible = ref(true)
 </script>
 
 <template>
-    <button type="button" @click="wmsVisible = !wmsVisible">
-        CLick for change visible for {{ wmsVisible ? 'Hide' : 'Show' }} WMS tile layer
-    </button>
     <LMap :zoom="2" :center="[47.41322, -1.219482]">
         <LControlLayers />
         <LWmsTileLayer
@@ -24,4 +21,7 @@ const wmsVisible = ref(true)
             :layers="'TOPO-WMS,OSM-Overlay-WMS'"
         />
     </LMap>
+    <button type="button" @click="wmsVisible = !wmsVisible">
+        Click for change visible for {{ wmsVisible ? 'Hide' : 'Show' }} WMS tile layer
+    </button>
 </template>

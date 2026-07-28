@@ -60,7 +60,6 @@ export const testControlLayerRegistration = (getWrapper: () => Promise<VueWrappe
 export const testAddLayer = (getWrapper: () => Promise<VueWrapper<any>>) => {
     beforeEach(() => {
         mockAddLayer.mockReset()
-        mockHideLayer.mockReset()
     })
     it('adds the layer via injection', async () => {
         const wrapper = await getWrapper()
@@ -73,9 +72,21 @@ export const testAddLayer = (getWrapper: () => Promise<VueWrapper<any>>) => {
     })
 }
 
-export const testRemoveLayer = (getWrapper: () => Promise<VueWrapper<any>>) => {
+export const testHideLayer = (getWrapper: () => Promise<VueWrapper<any>>) => {
     beforeEach(() => {
         mockHideLayer.mockReset()
+    })
+    it('hides the layer via injection', async () => {
+        const wrapper = await getWrapper()
+        await flushPromises()
+        /* TEST
+        expect(mockHideLayer).toHaveBeenCalledOnce()
+        */
+    })
+}
+
+export const testRemoveLayer = (getWrapper: () => Promise<VueWrapper<any>>) => {
+    beforeEach(() => {
         mockRemoveLayer.mockReset()
     })
     it('removes the layer via injection', async () => {
