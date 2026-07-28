@@ -4,6 +4,7 @@ import { beforeEach, expect, it, type Mock, vi } from 'vitest'
 export const mockRegisterControl: Mock = vi.fn()
 export const mockRegisterLayerControl: Mock = vi.fn()
 export const mockAddLayer: Mock = vi.fn()
+export const mockHideLayer: Mock = vi.fn()
 export const mockRemoveLayer: Mock = vi.fn()
 export const mockCanSetParentHtmlInjection: Mock = vi.fn(() => true)
 export const mockSetParentHtmlInjection: Mock = vi.fn()
@@ -59,6 +60,7 @@ export const testControlLayerRegistration = (getWrapper: () => Promise<VueWrappe
 export const testAddLayer = (getWrapper: () => Promise<VueWrapper<any>>) => {
     beforeEach(() => {
         mockAddLayer.mockReset()
+        mockHideLayer.mockReset()
     })
     it('adds the layer via injection', async () => {
         const wrapper = await getWrapper()
@@ -73,6 +75,7 @@ export const testAddLayer = (getWrapper: () => Promise<VueWrapper<any>>) => {
 
 export const testRemoveLayer = (getWrapper: () => Promise<VueWrapper<any>>) => {
     beforeEach(() => {
+        mockHideLayer.mockReset()
         mockRemoveLayer.mockReset()
     })
     it('removes the layer via injection', async () => {
