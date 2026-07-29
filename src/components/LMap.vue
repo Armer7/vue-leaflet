@@ -280,6 +280,13 @@ function useEvents() {
             emit('update:center', leafletObject.value.getCenter())
             emit('update:bounds', leafletObject.value.getBounds())
         }),
+        baselayerchange(ev) {
+            layersInControl.value.forEach((layer) => {
+                if (layer.layerType === 'base') {
+                    layer.updateVisibleProp(layer.name === ev.name)
+                }
+            })
+        },
         overlayadd(ev) {
             const layer = layersInControl.value.find((l) => l.name === ev.name)
             layer?.updateVisibleProp(true)
